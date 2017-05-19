@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Hyperledger Fabric SDK for node.js Class: Key</title>
+	<title>Hyperledger Fabric SDK for node.js Class: CryptoSuite_PKCS11</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,21 +86,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Key</h1>
+	<h1 class="page-title">Class: CryptoSuite_PKCS11</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-api.html">api</a>.</span>
-        
-        Key
+        CryptoSuite_PKCS11
         </h2>
         
-            <div class="class-description">Key represents a cryptographic key. It can be symmetric or asymmetric. In the case of an
-asymmetric key, the key can be public or private. In the case of a private asymmetric
-key, the getPublicKey() method allows to retrieve the corresponding public-key.
-A key can be referenced via the Subject Key Identifier in DER or PEM encoding</div>
+            <div class="class-description">PKCS#11-compliant implementation to support Hardware Security Modules.</div>
         
     
 </header>
@@ -112,7 +107,7 @@ A key can be referenced via the Subject Key Identifier in DER or PEM encoding</d
         
 <hr>
 <dt>
-    <h4 class="name" id="Key"><span class="type-signature"></span>new Key()</h4>
+    <h4 class="name" id="CryptoSuite_PKCS11"><span class="type-signature"></span>new CryptoSuite_PKCS11(keySize, hash, opts)</h4>
     
     
 </dt>
@@ -125,6 +120,116 @@ A key can be referenced via the Subject Key Identifier in DER or PEM encoding</d
     
 
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>keySize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Length of key (in bytes), a.k.a "security level"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hash</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional. Hash algorithm, supported values are "SHA2" and "SHA3"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Option is the form { lib: string, slot: number, pin: string }
+
+If lib is not specified or null, its value will be taken from the
+CRYPTO_PKCS11_LIB env var, and if the env var is not set, its value will
+be taken from the crypto-pkcs11-lib key in the configuration file.
+
+If slot is not specified or null, its value will be taken from the
+CRYPTO_PKCS11_SLOT env var, and if the env var is not set, its value will
+be taken from the crypto-pkcs11-slot key in the configuration file.
+
+If pin is not specified or null, its value will be taken from the
+CRYPTO_PKCS11_PIN env var, and if the env var is not set, its value will
+be taken from the crypto-pkcs11-pin key in the configuration file.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -204,7 +309,7 @@ A key can be referenced via the Subject Key Identifier in DER or PEM encoding</d
             
 <hr>
 <dt>
-    <h4 class="name" id="getPublicKey"><span class="type-signature"></span>getPublicKey()</h4>
+    <h4 class="name" id="decrypt"><span class="type-signature"></span>decrypt()</h4>
     
     
 </dt>
@@ -212,8 +317,249 @@ A key can be referenced via the Subject Key Identifier in DER or PEM encoding</d
 
     
     <div class="description">
-        Returns the corresponding public key if this key is an asymmetric private key.
-If this key is already public, PublicKey returns this key itself.
+        This is an implementation of <a href="module-api.CryptoSuite.html#decrypt">module:api.CryptoSuite#decrypt</a>
+Decrypts cipherText using key.
+The opts argument should be appropriate for the algorithm used.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="deriveKey"><span class="type-signature"></span>deriveKey()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This is an implementation of <a href="module-api.CryptoSuite.html#deriveKey">module:api.CryptoSuite#deriveKey</a>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="encrypt"><span class="type-signature"></span>encrypt()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This is an implementation of <a href="module-api.CryptoSuite.html#encrypt">module:api.CryptoSuite#encrypt</a>
+Encrypts plainText using key.
+The opts argument should be appropriate for the algorithm used.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="generateKey"><span class="type-signature"></span>generateKey()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        This is an implementation of <a href="module-api.CryptoSuite.html#generateKey">module:api.CryptoSuite#generateKey</a>
+Returns an instance of module.api.Key representing the private key,
+which also encapsulates the public key. By default the generated key (keypar)
+is (are) ephemeral unless opts.ephemeral is set to false, in which case the
+key (keypair) will be saved across PKCS11 sessions by the HSM hardware.
     </div>
     
 
@@ -279,8 +625,8 @@ If this key is already public, PublicKey returns this key itself.
     
             
 <div class="param-desc">
-    the corresponding public key if this key is an asymmetric private key.
-If this key is already public, PublicKey returns this key itself.
+    Promise of an instance of module:PKCS11_ECDSA_KEY
+containing the private key and the public key.
 </div>
 
 
@@ -308,7 +654,7 @@ If this key is already public, PublicKey returns this key itself.
             
 <hr>
 <dt>
-    <h4 class="name" id="getSKI"><span class="type-signature"></span>getSKI()</h4>
+    <h4 class="name" id="getKey"><span class="type-signature"></span>getKey()</h4>
     
     
 </dt>
@@ -316,7 +662,8 @@ If this key is already public, PublicKey returns this key itself.
 
     
     <div class="description">
-        Returns the subject key identifier of this key in DER encoding for private keys or PEM encoding for public keys.
+        This is an implementation of <a href="module-api.CryptoSuite.html#getKey">module:api.CryptoSuite#getKey</a>
+Returns the key this CSP associates to the Subject Key Identifier ski.
     </div>
     
 
@@ -378,30 +725,6 @@ If this key is already public, PublicKey returns this key itself.
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    the subject key identifier of this key
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;byte></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -410,7 +733,7 @@ If this key is already public, PublicKey returns this key itself.
             
 <hr>
 <dt>
-    <h4 class="name" id="isPrivate"><span class="type-signature"></span>isPrivate()</h4>
+    <h4 class="name" id="importKey"><span class="type-signature"></span>importKey()</h4>
     
     
 </dt>
@@ -418,7 +741,7 @@ If this key is already public, PublicKey returns this key itself.
 
     
     <div class="description">
-        Returns true if this key is an asymmetric private key, false otherwise.
+        This is an implementation of <a href="module-api.CryptoSuite.html#importKey">module:api.CryptoSuite#importKey</a>
     </div>
     
 
@@ -480,30 +803,6 @@ If this key is already public, PublicKey returns this key itself.
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    if this key is an asymmetric private key
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -512,7 +811,7 @@ If this key is already public, PublicKey returns this key itself.
             
 <hr>
 <dt>
-    <h4 class="name" id="isSymmetric"><span class="type-signature"></span>isSymmetric()</h4>
+    <h4 class="name" id="sign"><span class="type-signature"></span>sign()</h4>
     
     
 </dt>
@@ -520,7 +819,10 @@ If this key is already public, PublicKey returns this key itself.
 
     
     <div class="description">
-        Returns true if this key is a symmetric key, false is this key is asymmetric
+        This is an implementation of <a href="module-api.CryptoSuite.html#sign">module:api.CryptoSuite#sign</a>
+Signs digest using key k.
+
+The opts argument is not needed.
     </div>
     
 
@@ -582,30 +884,6 @@ If this key is already public, PublicKey returns this key itself.
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    if this key is a symmetric key
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -614,7 +892,7 @@ If this key is already public, PublicKey returns this key itself.
             
 <hr>
 <dt>
-    <h4 class="name" id="toBytes"><span class="type-signature"></span>toBytes()</h4>
+    <h4 class="name" id="verify"><span class="type-signature"></span>verify()</h4>
     
     
 </dt>
@@ -622,7 +900,8 @@ If this key is already public, PublicKey returns this key itself.
 
     
     <div class="description">
-        Converts this key to its byte representation, if this operation is allowed.
+        This is an implementation of <a href="module-api.CryptoSuite.html#verify">module:api.CryptoSuite#verify</a>
+Verifies signature against key k and digest
     </div>
     
 
@@ -684,30 +963,6 @@ If this key is already public, PublicKey returns this key itself.
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    the byte representation of the key
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;byte></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
